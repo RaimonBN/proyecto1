@@ -1,6 +1,15 @@
 <?php
 class ImagenGaleria
 {
+    const RUTA_IMAGENES_PORTFOLIO = "images/index/portfolio/";
+    const RUTA_IMAGENES_GALLERY = 'imagenes/index/gallery/';
+
+    public function getUrlPortfolio() : string{
+        return self::RUTA_IMAGENES_PORTFOLIO . $this->getNombre();
+    }
+    public function getUrlGallery() : string {
+        return self::RUTA_IMAGENES_GALLERY . $this->getNombre();
+    }
     private $nombre;
 
     private $descripcion;
