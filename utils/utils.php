@@ -16,3 +16,12 @@ function  existeOpcionMenuActivaEnArray(array $options): bool{
     }
     return false;
 }
+function sanitizeInput(string $data): string  {
+    $data = trim($data);
+
+    //Quita las comillas escapadas \' y \ ""
+    $data = stripslashes($data);
+    //Previene la introducción de scripts en los campos
+    $data = htmlspecialchars($data);
+    return $data;
+}
