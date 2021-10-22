@@ -26,8 +26,8 @@
                 <li class="<?= (esOpcionMenuActiva("contact")? "active" : "");?> lien">
                   <a href="<?= (esOpcionMenuActiva("contact")? "#" : "/contact.php");?>"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
                 </li>
-                <li class="<?= (esOpcionMenuActiva("gallery")? "active" : "");?> lien">
-                  <a href="<?= (esOpcionMenuActiva("gallery")? "#" : "/galeria.php");?>"><i class="fa fa-phone-square sr-icons"></i> Gallery</a>
+                <li class="<?= (esOpcionMenuActiva("galeria")? "active" : "");?> lien">
+                  <a href="<?= (esOpcionMenuActiva("galeria")? "#" : "/galeria.php");?>"><i class="fa fa-image sr-icons"></i> Gallery</a>
                 </li>
             </ul>
         </div>
