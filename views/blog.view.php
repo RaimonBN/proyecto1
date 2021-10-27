@@ -1,10 +1,9 @@
 <?php
-  include __DIR__."/partials/inicio-doc.part.php";
-  include __DIR__."/partials/nav.part.php";
+
+  include __DIR__ . "/partials/inicio-doc.part.php";
+  include __DIR__ . "/partials/nav.part.php";
 
 ?>
-
-
 
 <!-- Principal Content Start -->
    <div id="blog">
@@ -142,7 +141,7 @@
                  <i class="fa fa-heart sr-icons"></i> 10
                  <i class="fa fa-comments sr-icons"></i> 10
                  </span>
-                 <h4 class="text-left"><a href="-_post.php"><strong>Consequuntur</strong></a></h4>
+                 <h4 class="text-left"><a href="single_post.php"><strong>Consequuntur</strong></a></h4>
                </div>
              </div>
         </div>
@@ -152,11 +151,16 @@
      </div>
    </div>
 <!-- End of Principal Content Start --> 
-
-<!-- Footer -->
-   <footer>
+  <!-- Footer -->
+  <footer class="home-page">
      <div class="container text-muted text-center">
-         <ul class="list-inline social-buttons">
+       <div class="row">
+         <ul class="nav col-sm-4">
+           <li class="footer-number"><i class="fa fa-phone sr-icons"></i>  (00228)92229954 </li>
+           <li><i class="fa fa-envelope sr-icons"></i>  kouvenceslas93@gmail.com</li>
+           <li>Photography Fanatic Template &copy; 2017</li>
+         </ul>
+         <ul class="list-inline social-buttons col-sm-4 col-sm-push-4">
             <li><a href="#"><i class="fa fa-facebook sr-icons"></i></a>
             </li>
             <li><a href="#"><i class="fa fa-twitter sr-icons"></i></a>
@@ -164,14 +168,12 @@
             <li><a href="#"><i class="fa fa-google-plus sr-icons"></i></a>
             </li>
          </ul>
-         <ul class="list-inline">
-           <li class="footer-number"><i class="fa fa-phone sr-icons"></i>  (00228)92229954 </li>
-           <li><i class="fa fa-envelope sr-icons"></i>  kouvenceslas93@gmail.com</li>
-         </ul>
-         <p>Photography Fanatic Template &copy; 2017</p>
+       </div>
      </div>
-   </footer>
+     </footer>
+ <?php
 
-<?php
-  include __DIR__."/partials/fin-doc.part.php";
-?>
+include __DIR__ . "/partials/fin-doc.part.php";
+
+?> 
+  

@@ -1,15 +1,27 @@
 <?php
-class ImagenGaleria
+class ImagenGaleria 
 {
-    const RUTA_IMAGENES_PORTFOLIO = "images/index/portfolio/";
-    const RUTA_IMAGENES_GALLERY = 'imagenes/index/gallery/';
 
-    public function getUrlPortfolio() : string{
+    const RUTA_IMAGENES_PORTFOLIO = 'images/index/portfolio/';
+
+    const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
+
+    public function getUrlPortfolio() : string
+
+    {
+
         return self::RUTA_IMAGENES_PORTFOLIO . $this->getNombre();
+
     }
-    public function getUrlGallery() : string {
+
+    public function getUrlGallery() : string
+
+    {
+
         return self::RUTA_IMAGENES_GALLERY . $this->getNombre();
+
     }
+
     private $nombre;
 
     private $descripcion;
@@ -20,17 +32,18 @@ class ImagenGaleria
 
     private $numDownloads;
 
+
     public function __construct(string $nombre, string $descripcion,
-                                int $numVisualizaciones = 0, int $numLikes = 0, 
+                                int $numVisualizaciones = 0, int $numLikes = 0,
                                 int $numDownloads = 0){
+            
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->numVisualizaciones = $numVisualizaciones;
         $this->numLikes = $numLikes;
         $this->numDownloads = $numDownloads;
-                                
-    }    
 
+    }
 
 
     /**

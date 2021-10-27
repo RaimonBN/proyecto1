@@ -53,7 +53,6 @@ body{
 	color: #777;
 }
 
-
 @media(min-width: 768px){
 .navbar .nav li a{
 	color: #777;
@@ -1209,9 +1208,9 @@ img{
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-/*-- End of Contact Page Stylesheet --*/
-
-/* Estilos propios */
 #contact input.has-error{
+
     background-color:rgba(100,0,0,0.5);
+
 }
+/*-- End of Contact Page Stylesheet --*/
