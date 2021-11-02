@@ -17,3 +17,5 @@ their respective owners.
 
 ######### CONTACT #########
 http://beauxthemes.com/contact
+
+//PRUEBA DE CAMBIO EN EL 5.2 POR PROBLEMAS DE GIT
