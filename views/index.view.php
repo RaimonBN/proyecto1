@@ -1,10 +1,8 @@
 <?php
-  include __DIR__ . "/partials/inicio-doc-part.php"
-  ?>
+  include __DIR__ . "/partials/inicio-doc.part.php";
+  include __DIR__ . "/partials/nav.part.php";
+?>
 
-<?php
-  include __DIR__ . "/partials/nav.part.php"
-  ?>
 
 <!-- Principal Content Start -->
    <div id="index">
@@ -41,23 +39,22 @@
       
       <!-- Navigation Table Content -->
         <div class="tab-content">
+          <?php
+            $categoryId = '1';
+            $active = true;
+            shuffle($galeria);
+            include __DIR__ . "/partials/imagen-galeria.part.php";
+            $categoryId = '2';
+            $active = false;
+            shuffle($galeria);
+            include __DIR__ . "/partials/imagen-galeria.part.php";
+            $categoryId = '3';
+            $active = false;
+            shuffle($galeria);
+            include __DIR__ . "/partials/imagen-galeria.part.php";
 
-      <?php
-      $categoryId = '1';
-      $active = true;
-      shuffle($galeria);
-      include __DIR__ . "/partials/imagen-galeria.part.php";
-      $categoryId = '2';
-      $active = false;
-      shuffle($galeria);
-      include __DIR__ . "/partials/imagen-galeria.part.php";
-      $categoryId = '3';
-      $active = false;
-      shuffle($galeria);
-      include __DIR__ . "/partials/imagen-galeria.part.php";
-
-      ?>
-
+          ?>
+  
         </div>
     <!-- End of Navigation Table Content -->
       </div><!-- End of Index-body box -->
@@ -77,16 +74,13 @@
       </div>
     <!-- End of Newsletter form -->  
 
-    <!-- Box within partners name and logo -->
 <?php
-include __DIR__ . "/partials/asociado.part.php";
+  include __DIR__ . "/partials/asociado.part.php";
 ?>
-    <!-- End of Box within partners name and logo -->
-
    </div><!-- End of index box -->
-  
-  <!-- Footer -->
-<footer class="home-page">
+
+   <!-- Footer -->
+   <footer class="home-page">
      <div class="container text-muted text-center">
        <div class="row">
          <ul class="nav col-sm-4">
@@ -105,6 +99,7 @@ include __DIR__ . "/partials/asociado.part.php";
        </div>
      </div>
    </footer>
+
 <?php
-  include __DIR__ . "/partials/fin-dic-part.php"
-  ?>
+  include __DIR__ . "/partials/fin-doc.part.php";
+?>

@@ -1,38 +1,32 @@
-<?php
+<?php 
+
 class Asociado
 {
-
-    const RUTA_LOGOS = 'images/logo/';
-     /**
-     * Devuelve el path de los logos
-     * 
-     * @return string
-     */
-    public function getLogoImage() : string
-    {
-        return self::RUTA_LOGOS . $this->getLogo();
-    }
+    const RUTA_IMAGENES_ASOCIADO = 'images/index/';
     /**
      * @var string
      */
     private $nombre;
-
-     /**
-     * @var string
-     */
-    private $descripcion;
 
     /**
      * @var string
      */
     private $logo;
 
+    /**
+     * @var string
+     */
+    private $descripcion;
 
-    public function __construct(string $nombre, string $descripcion,string $logo){
+    /**
+     * @param string $nombre
+     * @param string $logo
+     * @param string $descripcion
+     */
+    public function __construct(string $nombre, string $logo, string $descripcion = ""){
         $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
         $this->logo = $logo;
-
+        $this->descripcion = $descripcion;
     }
 
     /**
@@ -48,13 +42,37 @@ class Asociado
     /**
      * Set the value of nombre
      *
-     * @param string $nombre
+     * @param  string  $nombre
      *
      * @return  self
      */ 
     public function setNombre(string $nombre)
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of logo
+     *
+     * @return  string
+     */ 
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set the value of logo
+     *
+     * @param  string  $logo
+     *
+     * @return  self
+     */ 
+    public function setLogo(string $logo)
+    {
+        $this->logo = $logo;
 
         return $this;
     }
@@ -84,27 +102,12 @@ class Asociado
     }
 
     /**
-     * Get the value of logo
+     * Devuelve el path a las imágenes del asociado
      *
-     * @return  string
-     */ 
-    public function getLogo()
+     * @return string
+     */
+    public function getUrlImagen() : string
     {
-        return $this->logo;
+        return self::RUTA_IMAGENES_ASOCIADO . $this->getLogo();
     }
-
-    /**
-     * Set the value of logo
-     *
-     * @param  string  $logo
-     *
-     * @return  self
-     */ 
-    public function setLogo(string $logo)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
 }
