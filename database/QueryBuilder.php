@@ -13,12 +13,12 @@ class QueryBuilder
     }
 
     public function findAll(string $table, string $classEntity){
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT * FROM $table";
         try{
             $pdoStatement = $this->connection->prepare($sql);
             $pdoStatement ->execute();
             $pdoStatement ->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 
-            "ProyectoWeb\\entity\\" . $this->classEntity);
+            $classEntity);
             return $pdoStatement->fetchAll();
         }catch(\PDOException $pdoException){
             throw new QueryException("No se ha podido ejecutar la consulta solicitada: ".
