@@ -60,7 +60,18 @@
               ->toFile(ImagenGaleria::RUTA_IMAGENES_GALLERY . $file->getFileName()); 
               $info = 'Imagen enviada correctamente'; 
               $urlImagen = ImagenGaleria::RUTA_IMAGENES_GALLERY . $file->getFileName();
-              $form->reset();
+              
+              $sql = "INSERT INTO imagenes(nombre,descripcion) VALUES (:nombre, :descripcion)";
+              $pdoStatement = $connection->prepare($sql);
+              $pdoStatement -> bindValue(':nombre', $file->getFileName());
+              $pdoStatement -> bindValue(':descripcion', $description->getValue());
+              if(false === $pdoStatement->execute()){
+                $form->addError('No se ha podido guardar la imagen en la base de datos');
+              }else{
+                $info = 'Imagen enviada correctamente';
+                $form->reset();
+              }
+              
             
           }catch(Exception $err) {
               $form->addError($err->getMessage());
