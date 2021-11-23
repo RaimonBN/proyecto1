@@ -9,7 +9,7 @@ class QueryBuilder
      */
     public function __construct($connection)
     {
-        $this->connection = $connection;
+        $this->connection = App::get('connection');
     }
 
     public function findAll(string $table, string $classEntity){

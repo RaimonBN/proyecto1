@@ -15,7 +15,8 @@
     require_once "./entity/ImagenGaleria.php";
     require_once "./database/QueryBuilder.php";
     require_once "./database/Connection.php";
-    $connection = Connection::make();
+    require_once "./core/App.php";
+    
     
     $info = $urlImagen = "";
 
@@ -47,6 +48,11 @@
     ->appendChild($file)
     ->appendChild($descriptionWrapper)
     ->appendChild($b);
+
+    $config = require_once 'app/config.php';
+    App::bind('config', $config);
+    App::bind('connection', Connection::make($config['database']));
+    $connection = Connection::make($config['database']);
 
     if ("POST" === $_SERVER["REQUEST_METHOD"]) {
         $form->validate();
