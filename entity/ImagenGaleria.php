@@ -34,18 +34,38 @@ class ImagenGaleria extends Entity
     private $id;
     
 
-    /*public function __construct(string $nombre = '', string $descripcion = '',
+    /**
+
+     * @var int
+
+     */
+
+    private $categoria;
+
+    
+
+     public function __construct(string $nombre = '', string $descripcion = '',
+
                                 int $numVisualizaciones = 0, int $numLikes = 0,
-                                int $numDownloads = 0){
+
+                                int $numDownloads = 0, int $categoria = 0){
+
         $this->id = null;
+
         $this->nombre = $nombre;
+
         $this->descripcion = $descripcion;
+
         $this->numVisualizaciones = $numVisualizaciones;
+
         $this->numLikes = $numLikes;
+
         $this->numDownloads = $numDownloads;
 
+        $this->categoria = $categoria;
+
     }
-    */
+    
     public function toArray(): array
 {
     return [
@@ -60,7 +80,9 @@ class ImagenGaleria extends Entity
 
         'numLikes' => $this->getNumLikes(),
 
-        'numDownloads' => $this->getNumDownloads()
+        'numDownloads' => $this->getNumDownloads(),
+
+        'categoria' => $this->getCategoria()
 
     ];
 }
@@ -224,6 +246,26 @@ class ImagenGaleria extends Entity
     public function setId(int $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categoria
+     */ 
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * Set the value of categoria
+     *
+     * @return  self
+     */ 
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
 
         return $this;
     }

@@ -19,60 +19,65 @@
 <hr class="divider">
 
 <div class="imagenes_galeria">
+<table class="table">
 
-    <table class="table">
+    <thead>
 
-        <thead>
+    <tr>
+
+        <th scope="col">#</th>
+
+        <th scope="col">Imagen</th>
+
+        <th scope="col">Visualizaciones</th>
+
+        <th scope="col">Likes</th>
+
+        <th scope="col">Descargas</th>
+
+        <th scope="col">Categoría</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <?php foreach ($imagenes as $imagen): ?>
 
         <tr>
 
-            <th scope="col">#</th>
+            <th scope="row"><?= $imagen->getId(); ?></th>
 
-            <th scope="col">Imagen</th>
+            <td>
 
-            <th scope="col">Visualizaciones</th>
+                <img src="<?= $imagen->getUrlGallery(); ?>"
 
-            <th scope="col">Likes</th>
+                     alt="<?= $imagen->getDescripcion(); ?>"
 
-            <th scope="col">Descargas</th>
+                     title="<?= $imagen->getDescripcion(); ?>"
+
+                     width="100px">
+
+            </td>
+
+            <td><?= $imagen->getNumVisualizaciones(); ?></td>
+
+            <td><?= $imagen->getNumLikes(); ?></td>
+
+            <td><?= $imagen->getNumDownloads(); ?></td>
+
+            <td><?= $imagen->getNumDownloads(); ?></td>
+
+        <td><?= $repositorio->getCategoria($imagen)->getNombre(); ?></td>
 
         </tr>
 
-        </thead>
+    <?php endforeach; ?>
 
-        <tbody>
+    </tbody>
 
-        <?php foreach ($imagenes as $imagen): ?>
-
-            <tr>
-
-                <th scope="row"><?= $imagen->getId(); ?></th>
-
-                <td>
-
-                    <img src="<?= $imagen->getUrlGallery(); ?>"
-
-                         alt="<?= $imagen->getDescripcion(); ?>"
-
-                         title="<?= $imagen->getDescripcion(); ?>"
-
-                         width="100px">
-
-                </td>
-
-                <td><?= $imagen->getNumVisualizaciones(); ?></td>
-
-                <td><?= $imagen->getNumLikes(); ?></td>
-
-                <td><?= $imagen->getNumDownloads(); ?></td>
-
-            </tr>
-
-        <?php endforeach; ?>
-
-        </tbody>
-
-    </table>
+</table>
 
 </div>
 
