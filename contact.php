@@ -9,7 +9,9 @@
     require_once "./utils/Forms/custom/MyFormGroup.php";
     require_once "./utils/Forms/custom/MyFormControl.php";
     require_once "./utils/Validator/NotEmptyValidator.php";
- 
+    require_once "./entity/Mensaje.php";
+    require_once "./repository/MensajeRepository.php";
+
     $info = "";
     $firstName = new InputElement('text');
     $firstName
@@ -59,10 +61,19 @@
      ->appendChild($subjectWrapper)
      ->appendChild($messageWrapper)
      ->appendChild($b);
+     
+    $config = require_once 'app/config.php';
+    App::bind('config',$config);
+    App::bind('connection', Connection::make($config['database']));
+
+    $repositorio = new MensajeRepository();
+
      if ("POST" === $_SERVER["REQUEST_METHOD"]) {
         $form->validate();
         if (!$form->hasError()) {
           $info = "Mensaje insertado correctamente:";
+          $asociado = new Mensaje($firstName->getValue(),$lastName->getValue(),$subject->getValue(),$email->getValue(),$message->getValue());
+          $repositorio->save($asociado);
           $form->reset();
         }else{
           if ($firstName->hasError()) {
