@@ -1,5 +1,6 @@
 <?php
     $title = "Home";
+    session_start();
     require_once "./utils/utils.php";
     require_once "./entity/ImagenGaleria.php";
     require_once "./entity/Asociado.php";

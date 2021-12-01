@@ -23,6 +23,9 @@ require_once "./repository/ImagenGaleriaRepository.php";
 require_once "./repository/CategoriaRepository.php";
 require_once "./utils/Forms/SelectElement.php";
 require_once "./utils/Forms/OptionElement.php";
+require_once "./entity/Usuario.php";
+require_once "./repository/UsuarioRepository.php";
+require_once "./security/BCryptPasswordGenerator.php";
 
 session_start();
 
@@ -94,6 +97,11 @@ $form
 
   ->appendChild($b);
 
+  $config = require_once 'app/config.php';
+  App::bind('config',$config);
+  App::bind('connection', Connection::make($config['database']));
+  
+  $repositorio = new UsuarioRepository(new BCryptPasswordGenerator());
   if ("POST" === $_SERVER["REQUEST_METHOD"]) {
       $form -> validate();
       if (!$form->hasError())  {

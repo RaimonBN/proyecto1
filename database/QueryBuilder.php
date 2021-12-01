@@ -8,6 +8,8 @@ require_once __DIR__ . '/../core/App.php';
 
 require_once __DIR__ . '/../entity/Entity.php';
 
+require_once __DIR__ . '/../exceptions/NotFoundException.php';
+
 abstract class QueryBuilder
 
 {
@@ -129,6 +131,23 @@ abstract class QueryBuilder
             throw new QueryException("Error al actualizar el elemento con id
             {$parameters['id']}: ". $pdoException->getMessage());
         }
+    }
+    public function findByUserNameAndPassword(string $username, string $password): Usuario{
+        $sql = "SELECT * FROM $this->table WHERE username = :username";
+        $parameters = ['username' => $username];
+
+        $statement = $this->connection->prepare($sql);
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
+        $statement->execute($parameters);
+        $result = $statement->fetch();
+        if (empty($result)){
+            throw new NotFoundException("No se ha encontrado ningún elemento con esas credenciales");
+        }else {
+            if (!$this->passwordGenerator::passwordVerify($password, $result->getPassword())){
+                throw new NotFoundException("No se ha encontrado ningún elemento con esas credenciales");
+            }
+        }
+        return $result;
     }
 
 } 

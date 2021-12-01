@@ -1,5 +1,6 @@
 <?php
     $title = "Contact";
+    session_start();
     require_once "./utils/utils.php";
     require_once "./utils/Forms/InputElement.php";
     require_once "./utils/Forms/EmailElement.php";
